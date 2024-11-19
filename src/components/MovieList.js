@@ -9,7 +9,7 @@ const MovieList = ({ searchQuery }) => {
   useEffect(() => {
     if (searchQuery) {
       axios
-        .get(`http://www.omdbapi.com/?s=${searchQuery}&apikey=c9c4d60a`)
+        .get(`http://www.omdbapi.com/?s=${searchQuery}&apikey=${process.env.REACT_APP_OMDB_API_KEY}`)
         .then((response) => {
 
             setMovies(response.data.Search || []);

@@ -9,7 +9,7 @@ const MovieDetails = ({ imdbID, onClose }) => {
     if (imdbID) {
       setLoading(true); 
       axios
-        .get(`http://www.omdbapi.com/?i=${imdbID}&apikey=c9c4d60a`)
+        .get(`http://www.omdbapi.com/?i=${imdbID}&apikey=c${process.env.REACT_APP_OMDB_API_KEY}`)
         .then((response) => {
           setMovieDetails(response.data);
           setLoading(false); 
